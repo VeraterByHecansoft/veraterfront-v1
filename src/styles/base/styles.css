@@ -1,0 +1,235 @@
+/* Variables */
+:root {
+	--tw-sidebar-transition-duration: 0.3s;
+	--tw-sidebar-transition-timing: ease;
+	--tw-primary: #E40E20;
+	--tw-primary-active: #E82A2A;
+}
+
+
+
+/* Base */
+.header {
+	height: var(--tw-header-height);
+}
+
+.sidebar {
+	width: var(--tw-sidebar-width);
+}
+
+.header-fixed .wrapper {
+	padding-top: var(--tw-header-height);
+}
+
+/* Desktop mode */
+@media (min-width: theme('screens.lg')) {
+	.sidebar {
+		width: var(--tw-sidebar-width);
+		transition: width var(--tw-sidebar-transition-duration) var(--tw-sidebar-transition-timing);
+	}
+
+	.sidebar .sidebar-header {
+		height: var(--tw-header-height);
+	}
+
+	.sidebar .sidebar-wrapper {
+		width: var(--tw-sidebar-default-width);
+	}
+
+	.sidebar .sidebar-logo {
+		width: var(--tw-sidebar-default-width);
+	}
+
+	.sidebar .small-logo {
+		display: none;
+	}
+
+	.sidebar-fixed .wrapper {
+		padding-inline-start: var(--tw-sidebar-width);
+	}
+
+	.sidebar-fixed.header-fixed .header {
+		inset-inline-start: var(--tw-sidebar-width);
+	}
+
+	.sidebar-fixed.header-fixed .wrapper {
+		padding-top: var(--tw-header-height);
+	}
+
+
+	.sidebar-collapse .sidebar {
+		transition: width var(--tw-sidebar-transition-duration) var(--tw-sidebar-transition-timing);
+	}
+
+	.sidebar-collapse .sidebar.animating {
+		pointer-events: none;
+	}
+
+	.sidebar-collapse .sidebar:hover:not(.animating) {
+		width: var(--tw-sidebar-default-width);
+		transition: width var(--tw-sidebar-transition-duration) var(--tw-sidebar-transition-timing);
+	}
+
+	.sidebar-collapse .sidebar:not(:hover) .default-logo {
+		display: none;
+	}
+
+	.sidebar-collapse .sidebar:not(:hover) .small-logo {
+		display: flex;
+	}
+
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-link .menu-title,
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-link .menu-arrow,
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-link .menu-badge,
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-label .menu-title,
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-label .menu-arrow,
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-label .menu-badge {
+		display: none;
+	}
+
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-accordion {
+		display: none;
+	}
+
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-heading {
+		visibility: hidden;
+		position: relative;
+	}
+
+	.sidebar-collapse .sidebar:not(:hover) .menu>.menu-item>.menu-heading::before {
+		content: "...";
+		color: currentColor;
+		font-size: inherit;
+		position: absolute;
+		visibility: visible;
+		display: inline-block;
+		bottom: 50%;
+		inset-inline-start: 0;
+		margin-inline-start: 0.225rem;
+		transform: translateX(100%);
+	}
+
+	.sidebar-collapse .sidebar .sidebar-content {
+		overflow: hidden;
+	}
+}
+
+.layout-initialized .wrapper {
+	transition: padding-inline-start var(--tw-sidebar-transition-duration) var(--tw-sidebar-transition-timing);
+}
+
+.layout-initialized .header {
+	transition: inset-inline-start var(--tw-sidebar-transition-duration) var(--tw-sidebar-transition-timing);
+}
+
+.input[readonly] {
+	background-color: #f3f4f6;
+	/* gris claro */
+	color: #9ca3af;
+	/* texto gris */
+	cursor: not-allowed;
+	/* cursor prohibido */
+	opacity: 0.6;
+	/* un poco de transparencia */
+}
+
+
+/* Simple estilos para el modal */
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content {
+	background-color: white;
+	padding: 20px;
+	width: 400px;
+	max-height: 80vh;
+	overflow-y: auto;
+}
+
+.icon-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 50px);
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.icon-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.icon-item:hover {
+	transform: scale(1.1);
+}
+
+/**
+ * Estilos para la consola
+*/
+.blinking-cursor::after {
+	content: '_';
+	animation: blink 1s step-start infinite;
+}
+
+.blinking-cursor::after {
+	content: '';
+	display: inline-block;
+	width: 8px;
+	background: currentColor;
+	height: 1em;
+	animation: blink 1s steps(2, start) infinite;
+	vertical-align: bottom;
+}
+
+@keyframes blink {
+
+	0%,
+	100% {
+		opacity: 1
+	}
+
+	50% {
+		opacity: 0
+	}
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40%, 60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+@keyframes gradientPulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes loader {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
