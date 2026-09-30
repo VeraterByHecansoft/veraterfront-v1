@@ -14,5 +14,3 @@ export * from './ColorPickerModal';
 export * from './IconPickerModal';
 export * from './accordion';
 export * from './image-input';
-export * from './rute';
-export * from './ui';
