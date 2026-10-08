@@ -4,7 +4,7 @@
   "version": "9.1.2",
   "type": "module",
   "scripts": {
-    "dev": "vite --host --port 3000",
+    "dev": "vite",
     "build": "NODE_ENV=production tsc && vite build",
     "lint": "eslint src --fix",
     "preview": "vite preview"

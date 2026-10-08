@@ -17,7 +17,9 @@ export default defineConfig({
     }
   },
   server: {
-    allowedHosts: true,
+    host: '10.10.0.3',
+    port: 3000,
+    allowedHosts: ['10.10.0.3', 'localhost'],
 
   },
 
